@@ -13,10 +13,10 @@
     let long = 0;
     let coordInfo = '';
 
-    // A szkript elkapja webhely által készített XMLHttpRequest-eket (XHR).
-    // Figyeli az XHR network eseményeket, és ellenőrzi, hogy a válasz URL-je egyezik-e az adott URL mintával: https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetMetadata%E2%80%9D
-    // Ha talál egyezést, elemzi a JSON-választ, és kivonja a szélességi és hosszúsági értékeket.
-    // Ezek az értékek a lat és long változókban tárolódnak.
+    // Script catches XMLHttpRequests (XHR) made by website.
+        // Listens for XHR network events and checks if the response URL matches the given URL pattern: https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/ GetMetadata%E2%80%9D
+        // If a match is found, parse the JSON response and extract the latitude and longitude values.
+        // These values are stored in the lat and long variables.
     var originalXHR = window.XMLHttpRequest;
     var newXHR = function () {
         var xhr = new originalXHR();
@@ -31,15 +31,15 @@
     };
     window.XMLHttpRequest = newXHR;
 
-    // A szkript olyan függvényeket tartalmaz, amelyek segítségével a szélességi és hosszúsági koordinátákat 
-    // decimális fokokból (pl. 40,7128, -74,0060) sokkal emberibb, olvasható formátumú fokká konvertálja. Percben és másodpercben (DMS) irányjelzőkkel (pl. 40°42'46.08"N, 74°0'21.60"W).
+    // The script contains functions to get latitude and longitude coordinates
+        // convert from decimal degrees (e.g. 40.7128, -74.0060) to degrees in a much more human, readable format. In minutes and seconds (DMS) with direction markers (e.g. 40°42'46.08"N, 74°0'21.60"W).
 
-    // Az átalakítási függvények a következők:
-         // convertCoords(lat, long): A szélességi és hosszúsági fokokat DMS formátumba konvertálja.
-         // convertToMinutes(decimal): A decimális fokokat percekké alakítja.
-         // convertToSeconds(decimal): A decimális fokokat másodpercekké konvertálja.
-         // getLatDirection(lat): Meghatározza a szélesség északi (É) vagy déli (D) irányát.
-         // getLongDirection(long): A hosszúság keleti (K) vagy nyugati (Ny) irányát határozza meg.
+        // The conversion functions are:
+            // convertCoords(lat, long): Converts latitude and longitude to DMS format.
+            // convertToMinutes(decimal): Converts decimal degrees to minutes.
+            // convertToSeconds(decimal): Converts decimal degrees to seconds.
+            // getLatDirection(lat): Determines the north (N) or south (S) direction of the latitude.
+            // getLongDirection(long): Determines the east (E) or west (W) direction of longitude.
     function convertCoords(lat, long) {
         var latResult, longResult, dmsResult;
         latResult = Math.abs(lat);
@@ -65,9 +65,9 @@
         return long >= 0 ? "E" : "W";
     }
 
-    // A szkript tartalmaz egy getCoordInfo() nevű függvényt is.
-    // Ez a funkció a kapott szélességi és hosszúsági értékeket arra használja, hogy lekérési kérelmet küldjön egy geokódoló szolgáltatásnak (https://nominatim.openstreetmap.org/), hogy a koordinátákon alapuló helyinformációkat kérjen le.
-    // A helyinformációt a rendszer kivonja a válaszból, és viszaküldi.
+    // The script also contains a function called getCoordInfo().
+        // This function uses the received latitude and longitude values to send a fetch request to a geocoding service (https://nominatim.openstreetmap.org/) to retrieve location information based on coordinates.
+        // The location information is extracted from the response and sent back.
     async function getCoordInfo() {
         try {
             const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${long}&format=json`);
@@ -95,8 +95,8 @@
         }
     }
 
-     // Ctrl + Shift + Space: egy új Google Térkép URL-t nyit meg a konvertált koordinátákkal.
-     // Ctrl + Shift + Alt: Alertként jelenít meg a getCoordInfo()-ból nyert helyinformációkkal.
+    // Ctrl + Shift + Space: opens a new Google Maps URL with the converted coordinates.
+    // Ctrl + Shift + Alt: Display as an alert with location information obtained from getCoordInfo().
     document.addEventListener('keydown', async function (event) {
         if (lat == 0 && long == 0) return;
         if (event.ctrlKey && event.shiftKey && event.code === 'Space') {
