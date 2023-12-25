@@ -5,9 +5,9 @@
 <h3  align="center">GeoSolver | for Geotastic.net</h3>
 </br>
 <p>
-<a  href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+<a  href="https://github.com/zenzty/georesolver/issues">Report Bug</a>
 ·
-<a  href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+<a  href="https://github.com/zenzty/georesolver/issues">Request Feature</a>
 </p>
 </div>
 
