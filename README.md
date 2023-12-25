@@ -3,12 +3,6 @@
 <div  align="center">
 </a>
 <h3  align="center">GeoSolver | for Geotastic.net</h3>
-</br>
-<p>
-<a  href="https://github.com/zenzty/georesolver/issues">Report Bug</a>
-·
-<a  href="https://github.com/palicz/georesolver/issues">Request Feature</a>
-</p>
 </div>
 
 
