@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Geotastic Marker with Simulated Interaction
+// @name         Geotastic Automatic Pinner
 // @namespace    PPV
 // @version      1.6
-// @description  Adds a marker and simulates user interaction to activate "Finish Guess" button.
+// @description  At the beginning of each round, the script automatically places a marker on the map and simulates user interaction to trigger the "Finish Guess" button, allowing users to precisely finalize their guess location.
 // @author       zenzty
 // @match        https://geotastic.net/*
 // @grant        none
