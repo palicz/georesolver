@@ -2,7 +2,7 @@
 <br />
 <div  align="center">
 </a>
-<h3  align="center">GeoSolver | for Geotastic.net</h3>
+<h3  align="center">Geotastic Automatic Pinner | for Geotastic.net</h3>
 </div>
 
 
