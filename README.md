@@ -7,7 +7,8 @@
 
 
 ## About The Project
-The Geotastic Resolver is a user script designed to enhance the functionality of the geotastic.net website. This script allows users to retrieve precise location information while using the Geotastic game platform. It extracts latitude and longitude coordinates from network requests and provides users with converted coordinates and detailed location information using a geocoding service.
+The Geotastic Resolver is a user script designed to enhance the functionality of the geotastic.net website. This script allows users to retrieve precise location information while using the Geotastic game platform. It extracts latitude and longitude coordinates from network requests and provides users with converted coordinates and detailed location information using a geocoding service. 
+### At the beggining of each round the script adds a marker to the map and simulates user interaction to activate "Finish Guess" button. So the user can precisely pinpoint the location
 
 ## Installation
 ### Prerequisites
@@ -46,10 +47,6 @@ The Geotastic Resolver is a user script designed to enhance the functionality of
 
 -   Once the script is installed and running, navigate to geotastic.net and start playing the game.
 
-### Shortcuts
-
--   **Ctrl + Shift + Space**: Opens a new Google Maps URL with the converted coordinates.
--   **Ctrl + Shift + Alt**: Displays an alert with detailed location information obtained from the geocoding service.
 
 ## Contribution
 
